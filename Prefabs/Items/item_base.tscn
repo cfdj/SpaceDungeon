@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnmfgmc8jadh7"]
+
+[ext_resource type="Texture2D" uid="uid://bely1vjfyu201" path="res://Sprites/Gadgets/wallAttacherWest.png" id="1_krm32"]
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="2_glutw"]
+
+[node name="ItemBase" type="Sprite2D"]
+texture = ExtResource("1_krm32")
+script = ExtResource("2_glutw")

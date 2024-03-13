@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmce0rgbyxxbl"]
+
+[ext_resource type="Texture2D" uid="uid://wswl5t10aquf" path="res://Sprites/OneOffs/playerShip/playerShipInteriorDoorOpen.png" id="1_3nmpe"]
+[ext_resource type="Script" path="res://Scripts/OneOffs/PlayerShip.gd" id="2_k10m8"]
+[ext_resource type="Texture2D" uid="uid://d3yy1jfav7jrq" path="res://Sprites/OneOffs/playerShip/shipDoor.png" id="3_leomx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7rwp"]
+size = Vector2(59.5, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kv5w"]
+size = Vector2(31, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43hrk"]
+size = Vector2(31, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6nux"]
+size = Vector2(46, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3jj3"]
+size = Vector2(29, 16)
+
+[node name="PlayerShip" type="Sprite2D" node_paths=PackedStringArray("leaveButton")]
+y_sort_enabled = true
+position = Vector2(112, 176)
+texture = ExtResource("1_3nmpe")
+script = ExtResource("2_k10m8")
+leaveButton = NodePath("")
+
+[node name="ShipDoor" type="Sprite2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(-8, -29)
+texture = ExtResource("3_leomx")
+
+[node name="MenuDetection" type="Area2D" parent="."]
+position = Vector2(16, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuDetection"]
+position = Vector2(-17.25, 0)
+shape = SubResource("RectangleShape2D_x7rwp")
+
+[node name="PlayerShipBounds" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerShipBounds"]
+position = Vector2(-32.5, 16)
+shape = SubResource("RectangleShape2D_2kv5w")
+
+[node name="PlayerShipBounds2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerShipBounds2"]
+position = Vector2(44.5, 16)
+shape = SubResource("RectangleShape2D_43hrk")
+
+[node name="PlayerShipBounds3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerShipBounds3"]
+position = Vector2(6, 40)
+shape = SubResource("RectangleShape2D_h6nux")
+
+[node name="PlayerShipBounds5" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerShipBounds5"]
+position = Vector2(14.5, -8)
+shape = SubResource("RectangleShape2D_d3jj3")
+
+[connection signal="body_entered" from="MenuDetection" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="MenuDetection" to="." method="_on_area_2d_body_exited"]

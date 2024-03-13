@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://yq8tonew5auh"]
+
+[ext_resource type="Texture2D" uid="uid://b7ejyiojenei3" path="res://Sprites/door/VaultDoors/northOpen.png" id="1_qy10r"]
+[ext_resource type="Script" path="res://Scripts/Interactables/door.gd" id="2_jp642"]
+[ext_resource type="Texture2D" uid="uid://cf8akpi5dwtmb" path="res://Sprites/door/VaultDoors/north.png" id="3_ya6a5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvvfa"]
+size = Vector2(16, 32)
+
+[node name="doorNorth" type="Sprite2D" node_paths=PackedStringArray("collider")]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("1_qy10r")
+script = ExtResource("2_jp642")
+closedSprite = ExtResource("3_ya6a5")
+openSprite = ExtResource("1_qy10r")
+collider = NodePath("StaticBody2D")
+isOpen = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_wvvfa")

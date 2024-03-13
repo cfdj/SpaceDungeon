@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ca4x4yb1026xf"]
+
+[ext_resource type="Texture2D" uid="uid://cr1ddget51xhq" path="res://Sprites/door/westOpen.png" id="1_ahxly"]
+[ext_resource type="Script" path="res://Scripts/Interactables/door.gd" id="2_mqh2b"]
+[ext_resource type="Texture2D" uid="uid://b3hvjhige5no4" path="res://Sprites/door/westInternal.png" id="3_pttmx"]
+[ext_resource type="Texture2D" uid="uid://rlmd4fe2fjve" path="res://Sprites/door/backSection.png" id="4_c5pnu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p6a1"]
+size = Vector2(32, 16)
+
+[node name="doorWest" type="Sprite2D" node_paths=PackedStringArray("collider")]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("1_ahxly")
+script = ExtResource("2_mqh2b")
+closedSprite = ExtResource("3_pttmx")
+openSprite = ExtResource("1_ahxly")
+collider = NodePath("StaticBody2D")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_5p6a1")
+
+[node name="BackPanel" type="Sprite2D" parent="."]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(0, 3)
+texture = ExtResource("4_c5pnu")

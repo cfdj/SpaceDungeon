@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dcahl2mixjydx"]
+
+[ext_resource type="FontFile" uid="uid://cyv2l71y74wxt" path="res://UI/Baskic8.otf" id="1_o2lkq"]
+
+[resource]
+Button/fonts/font = ExtResource("1_o2lkq")

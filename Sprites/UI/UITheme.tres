@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bu5ewyyhd5j2q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hktsr"]
+
+[resource]
+Button/styles/normal = SubResource("StyleBoxTexture_hktsr")

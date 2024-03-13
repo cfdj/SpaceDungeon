@@ -1,0 +1,10 @@
+res://Prefabs/player.tscn
+res://Sprites/AstronautAnimations/playerAnimation.tres
+res://TileMaps/shipTiles.tres
+res://TileMaps/TheVault.tres
+res://Prefabs/singletons.tscn
+res://UI/Menu.tscn
+res://Prefabs/Dungeon/TheApollo.tscn
+res://Prefabs/Dungeon/TheVault.tscn
+res://Prefabs/interactableTiles/Doors/VaultNorth.tscn
+res://Prefabs/interactableTiles/Doors/VaultWest.tscn

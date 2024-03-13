@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://4tbc13t1nrtq"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_8emh6"]
+[ext_resource type="Texture2D" uid="uid://b5nb8v4o5urms" path="res://Sprites/AstronautCurrent.png" id="2_h40m0"]
+[ext_resource type="SpriteFrames" uid="uid://pmimj53d3oee" path="res://Sprites/AstronautAnimations/playerAnimation.tres" id="3_8mq46"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcs3n"]
+size = Vector2(10, 9)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_8emh6")
+speed = 16.0
+animation = NodePath("AnimatedSprite2D")
+
+[node name="AstronautCurrent" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -7)
+texture = ExtResource("2_h40m0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_mcs3n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+sprite_frames = ExtResource("3_8mq46")
+animation = &"West"

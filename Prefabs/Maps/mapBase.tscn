@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://bujfhgyubd37g"]
+
+[ext_resource type="Texture2D" uid="uid://bfr73b1qa0f8e" path="res://Sprites/Maps/destination.png" id="1_6h3qr"]
+[ext_resource type="Script" path="res://Scripts/UIItem.gd" id="2_d6fep"]
+[ext_resource type="Texture2D" uid="uid://dbh4mf3lgnvj0" path="res://Sprites/UI/ItemIcons/GoalMap.png" id="3_pcn05"]
+
+[node name="mapBase" type="Sprite2D"]
+texture = ExtResource("1_6h3qr")
+script = ExtResource("2_d6fep")
+uiSprite = ExtResource("3_pcn05")

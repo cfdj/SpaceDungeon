@@ -1,0 +1,469 @@
+[gd_scene load_steps=42 format=3 uid="uid://ltj2jbaofiob"]
+
+[ext_resource type="TileSet" uid="uid://dymdj0js0wkkr" path="res://TileMaps/TheVault.tres" id="1_vljlq"]
+[ext_resource type="Script" path="res://Scripts/Map.gd" id="2_ldl3k"]
+[ext_resource type="PackedScene" uid="uid://c8yuva0pkqe0w" path="res://Prefabs/Pickups/homeMapPickup.tscn" id="3_tbe7t"]
+[ext_resource type="PackedScene" uid="uid://cot04xxu5wjgo" path="res://Prefabs/Pickups/mapPickup.tscn" id="4_43nvo"]
+[ext_resource type="PackedScene" uid="uid://g3qkl5bejb64" path="res://Prefabs/Pickups/wallAttacherPickup.tscn" id="5_8oplw"]
+[ext_resource type="PackedScene" uid="uid://4tbc13t1nrtq" path="res://Prefabs/player.tscn" id="6_j5aqd"]
+[ext_resource type="Script" path="res://Scripts/Interactables/dungeonManager.gd" id="7_bya34"]
+[ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="8_1rif5"]
+[ext_resource type="Texture2D" uid="uid://bil7juh1gmy5d" path="res://Sprites/OneOffs/Console.png" id="9_yu0y4"]
+[ext_resource type="Script" path="res://Scripts/OneOffs/Console.gd" id="10_abeq6"]
+[ext_resource type="Texture2D" uid="uid://bogj23ic1gsdn" path="res://Sprites/OneOffs/homeDestination.png" id="11_afupu"]
+[ext_resource type="Texture2D" uid="uid://l7b7i6cn1ewm" path="res://Sprites/OneOffs/ConsoleDestination.png" id="12_nymyq"]
+[ext_resource type="PackedScene" uid="uid://bbpdgubedlrjx" path="res://Prefabs/Maps/homeMap.tscn" id="13_41idw"]
+[ext_resource type="PackedScene" uid="uid://bujfhgyubd37g" path="res://Prefabs/Maps/mapBase.tscn" id="14_atpfp"]
+[ext_resource type="Texture2D" uid="uid://bcfmxl6fgka23" path="res://Sprites/OneOffs/consoleAnimation.png" id="15_k8qmx"]
+[ext_resource type="PackedScene" uid="uid://daj0ywva7hied" path="res://UI/Menu.tscn" id="16_1nxfc"]
+[ext_resource type="Texture2D" uid="uid://bfr73b1qa0f8e" path="res://Sprites/Maps/destination.png" id="17_wilk1"]
+[ext_resource type="Script" path="res://Scripts/UI/FixedUIElement.gd" id="18_ofj61"]
+[ext_resource type="Texture2D" uid="uid://d7wnmwdh064h" path="res://Sprites/UI/background.png" id="19_1wcne"]
+[ext_resource type="Script" path="res://Scripts/UI/Inventory.gd" id="20_j1jk1"]
+[ext_resource type="Theme" uid="uid://bu5ewyyhd5j2q" path="res://Sprites/UI/UITheme.tres" id="21_8yo22"]
+[ext_resource type="Texture2D" uid="uid://dbqgtt58kd2yx" path="res://Sprites/UI/selectionBox.png" id="22_c3wjp"]
+[ext_resource type="Script" path="res://Scripts/UI/UIBox.gd" id="23_q8rm0"]
+[ext_resource type="Texture2D" uid="uid://dklhjbwfxhb3n" path="res://Sprites/UI/greenSelected.png" id="24_w02c0"]
+[ext_resource type="Texture2D" uid="uid://cf6eo36bop38" path="res://Sprites/UI/QButton.png" id="25_jxbd0"]
+[ext_resource type="Texture2D" uid="uid://dxc4rpc7h1edg" path="res://Sprites/UI/purpleSelected.png" id="26_yvryt"]
+[ext_resource type="Texture2D" uid="uid://fvg5o7p2gw3y" path="res://Sprites/UI/eButton.png" id="27_2q3d8"]
+[ext_resource type="Texture2D" uid="uid://bsvlgu7prhs58" path="res://Sprites/UI/InventoryIcon.png" id="28_s46wu"]
+[ext_resource type="Texture2D" uid="uid://bw7votfo5ua6e" path="res://Sprites/OneOffs/EndScreen/Home.png" id="29_6hqun"]
+[ext_resource type="Texture2D" uid="uid://cuhafy2g0tqsb" path="res://Sprites/OneOffs/EndScreen/Destination.png" id="30_ah76u"]
+[ext_resource type="PackedScene" uid="uid://c1fe6hlu7egkq" path="res://Prefabs/singletons.tscn" id="31_kp4ap"]
+[ext_resource type="PackedScene" uid="uid://cmce0rgbyxxbl" path="res://Prefabs/player_ship.tscn" id="32_wlxgx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lla3v"]
+size = Vector2(78, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0phxs"]
+atlas = ExtResource("15_k8qmx")
+region = Rect2(0, 0, 19, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwxn6"]
+atlas = ExtResource("15_k8qmx")
+region = Rect2(19, 0, 19, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abec3"]
+atlas = ExtResource("15_k8qmx")
+region = Rect2(38, 0, 19, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtfc0"]
+atlas = ExtResource("15_k8qmx")
+region = Rect2(57, 0, 19, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mquv5"]
+atlas = ExtResource("15_k8qmx")
+region = Rect2(76, 0, 19, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30iib"]
+atlas = ExtResource("15_k8qmx")
+region = Rect2(95, 0, 19, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7242p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0phxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwxn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abec3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtfc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mquv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30iib")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qc8t"]
+size = Vector2(78, 34)
+
+[node name="Node2D" type="Node2D"]
+y_sort_enabled = true
+
+[node name="TileMap" type="TileMap" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+tile_set = ExtResource("1_vljlq")
+format = 2
+layer_0/name = "Space"
+layer_0/y_sort_enabled = true
+layer_1/name = "Ship"
+layer_1/y_sort_enabled = true
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Details"
+layer_2/y_sort_enabled = true
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "Walls"
+layer_3/y_sort_enabled = true
+layer_3/z_index = 2
+layer_3/tile_data = PackedInt32Array()
+script = ExtResource("2_ldl3k")
+
+[node name="homePickup" parent="TileMap" node_paths=PackedStringArray("player") instance=ExtResource("3_tbe7t")]
+position = Vector2(119, 72)
+player = NodePath("../Player")
+
+[node name="mapPickup" parent="TileMap" node_paths=PackedStringArray("player") instance=ExtResource("4_43nvo")]
+position = Vector2(118, 52)
+player = NodePath("../Player")
+hoverDistance = 5.0
+
+[node name="Pickup" parent="TileMap" node_paths=PackedStringArray("player") instance=ExtResource("5_8oplw")]
+position = Vector2(118, 99)
+player = NodePath("../Player")
+
+[node name="Player" parent="TileMap" node_paths=PackedStringArray("tilemap", "UI", "console") instance=ExtResource("6_j5aqd")]
+z_as_relative = true
+position = Vector2(112, 191)
+tilemap = NodePath("..")
+speed = 20.0
+UI = NodePath("../../CanvasLayer/InventoryScreen")
+console = NodePath("../../Console")
+
+[node name="Interactables" type="Node" parent="TileMap"]
+script = ExtResource("7_bya34")
+group1 = "OuterDoors"
+group2 = "InnerDoors"
+switches1 = "OuterSwitches"
+switches2 = "InnerSwitches"
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(80, 72)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("8_1rif5")
+player = NodePath("../TileMap/Player")
+
+[node name="Console" type="Sprite2D" parent="." node_paths=PackedStringArray("HomeEnding", "DestinationEnding", "highlightSprite")]
+z_index = 1
+position = Vector2(56, 52)
+texture = ExtResource("9_yu0y4")
+script = ExtResource("10_abeq6")
+HomeSprite = ExtResource("11_afupu")
+DestinationSprite = ExtResource("12_nymyq")
+HomeEnding = NodePath("../CanvasLayer/Home")
+DestinationEnding = NodePath("../CanvasLayer/Destination")
+HomeItem = ExtResource("13_41idw")
+DestinationItem = ExtResource("14_atpfp")
+highlightSprite = NodePath("HighLightSprite")
+
+[node name="Area2D" type="Area2D" parent="Console"]
+position = Vector2(0, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Console/Area2D"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_lla3v")
+
+[node name="HighLightSprite" type="AnimatedSprite2D" parent="Console"]
+z_index = 1
+position = Vector2(1, -2)
+sprite_frames = SubResource("SpriteFrames_7242p")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Console"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Console/StaticBody2D"]
+shape = SubResource("RectangleShape2D_5qc8t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("16_1nxfc")]
+
+[node name="Button" parent="CanvasLayer/Control" index="0"]
+disabled = true
+
+[node name="MapDisplay" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_wilk1")
+stretch_mode = 3
+script = ExtResource("18_ofj61")
+
+[node name="InventoryScreen" type="TextureRect" parent="CanvasLayer" node_paths=PackedStringArray("player", "background", "displays", "EBox", "QBox")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -72.0
+offset_right = 80.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_1wcne")
+stretch_mode = 2
+script = ExtResource("20_j1jk1")
+player = NodePath("../../TileMap/Player")
+background = NodePath(".")
+displays = [NodePath("SelectionBoxes/Button"), NodePath("SelectionBoxes/Button2"), NodePath("SelectionBoxes/Button3"), NodePath("SelectionBoxes/Button4"), NodePath("SelectionBoxes/Button5"), NodePath("SelectionBoxes/Button6")]
+EBox = NodePath("../GadgetUI/ESelect")
+QBox = NodePath("../GadgetUI/QSelect")
+
+[node name="SelectionBoxes" type="GridContainer" parent="CanvasLayer/InventoryScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -46.0
+offset_right = 60.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Button" type="Button" parent="CanvasLayer/InventoryScreen/SelectionBoxes" node_paths=PackedStringArray("itemDisplay")]
+layout_mode = 2
+theme = ExtResource("21_8yo22")
+icon = ExtResource("22_c3wjp")
+script = ExtResource("23_q8rm0")
+itemDisplay = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/InventoryScreen/SelectionBoxes/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+
+[node name="Button2" type="Button" parent="CanvasLayer/InventoryScreen/SelectionBoxes" node_paths=PackedStringArray("itemDisplay")]
+layout_mode = 2
+theme = ExtResource("21_8yo22")
+icon = ExtResource("22_c3wjp")
+script = ExtResource("23_q8rm0")
+itemDisplay = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/InventoryScreen/SelectionBoxes/Button2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+
+[node name="Button3" type="Button" parent="CanvasLayer/InventoryScreen/SelectionBoxes" node_paths=PackedStringArray("itemDisplay")]
+layout_mode = 2
+theme = ExtResource("21_8yo22")
+icon = ExtResource("22_c3wjp")
+script = ExtResource("23_q8rm0")
+itemDisplay = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/InventoryScreen/SelectionBoxes/Button3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+
+[node name="Button4" type="Button" parent="CanvasLayer/InventoryScreen/SelectionBoxes" node_paths=PackedStringArray("itemDisplay")]
+layout_mode = 2
+theme = ExtResource("21_8yo22")
+icon = ExtResource("22_c3wjp")
+script = ExtResource("23_q8rm0")
+itemDisplay = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/InventoryScreen/SelectionBoxes/Button4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+
+[node name="Button5" type="Button" parent="CanvasLayer/InventoryScreen/SelectionBoxes" node_paths=PackedStringArray("itemDisplay")]
+layout_mode = 2
+theme = ExtResource("21_8yo22")
+icon = ExtResource("22_c3wjp")
+script = ExtResource("23_q8rm0")
+itemDisplay = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/InventoryScreen/SelectionBoxes/Button5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+
+[node name="Button6" type="Button" parent="CanvasLayer/InventoryScreen/SelectionBoxes" node_paths=PackedStringArray("itemDisplay")]
+layout_mode = 2
+theme = ExtResource("21_8yo22")
+icon = ExtResource("22_c3wjp")
+script = ExtResource("23_q8rm0")
+itemDisplay = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/InventoryScreen/SelectionBoxes/Button6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+
+[node name="GadgetUI" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 40.0
+offset_bottom = 20.0
+
+[node name="QSelect" type="TextureRect" parent="CanvasLayer/GadgetUI" node_paths=PackedStringArray("itemDisplay")]
+layout_mode = 2
+texture = ExtResource("24_w02c0")
+stretch_mode = 2
+script = ExtResource("23_q8rm0")
+itemDisplay = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GadgetUI/QSelect"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="ButtonIcon" type="TextureRect" parent="CanvasLayer/GadgetUI/QSelect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("25_jxbd0")
+stretch_mode = 2
+
+[node name="ESelect" type="TextureRect" parent="CanvasLayer/GadgetUI" node_paths=PackedStringArray("itemDisplay")]
+layout_mode = 2
+texture = ExtResource("26_yvryt")
+stretch_mode = 2
+script = ExtResource("23_q8rm0")
+itemDisplay = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GadgetUI/ESelect"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="ButtonIcon" type="TextureRect" parent="CanvasLayer/GadgetUI/ESelect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("27_2q3d8")
+stretch_mode = 2
+
+[node name="Inventory prompt" type="TextureRect" parent="CanvasLayer/GadgetUI"]
+layout_mode = 2
+texture = ExtResource("28_s46wu")
+stretch_mode = 2
+
+[node name="Home" type="TextureRect" parent="CanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("29_6hqun")
+
+[node name="Destination" type="TextureRect" parent="CanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("30_ah76u")
+
+[node name="Singletons" parent="." node_paths=PackedStringArray("player", "mapDisplay", "tileMap", "console", "globals") instance=ExtResource("31_kp4ap")]
+player = NodePath("../TileMap/Player")
+mapDisplay = NodePath("../CanvasLayer/MapDisplay")
+tileMap = NodePath("../TileMap")
+console = NodePath("../Console")
+globals = NodePath(".")
+
+[node name="PlayerShip" parent="." node_paths=PackedStringArray("leaveButton") instance=ExtResource("32_wlxgx")]
+leaveButton = NodePath("../CanvasLayer/Control/Button")
+
+[connection signal="body_entered" from="Console/Area2D" to="Console" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Console/Area2D" to="Console" method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="Singletons" method="leave"]
+[connection signal="focus_entered" from="CanvasLayer/InventoryScreen/SelectionBoxes/Button" to="CanvasLayer/InventoryScreen" method="_on_selection_box_focus_entered" binds= [0]]
+[connection signal="focus_entered" from="CanvasLayer/InventoryScreen/SelectionBoxes/Button2" to="CanvasLayer/InventoryScreen" method="_on_selection_box_focus_entered" binds= [1]]
+[connection signal="focus_entered" from="CanvasLayer/InventoryScreen/SelectionBoxes/Button3" to="CanvasLayer/InventoryScreen" method="_on_selection_box_focus_entered" binds= [2]]
+[connection signal="focus_entered" from="CanvasLayer/InventoryScreen/SelectionBoxes/Button4" to="CanvasLayer/InventoryScreen" method="_on_selection_box_focus_entered" binds= [3]]
+[connection signal="focus_entered" from="CanvasLayer/InventoryScreen/SelectionBoxes/Button5" to="CanvasLayer/InventoryScreen" method="_on_selection_box_focus_entered" binds= [4]]
+[connection signal="focus_entered" from="CanvasLayer/InventoryScreen/SelectionBoxes/Button6" to="CanvasLayer/InventoryScreen" method="_on_selection_box_focus_entered" binds= [5]]
+
+[editable path="CanvasLayer/Control"]

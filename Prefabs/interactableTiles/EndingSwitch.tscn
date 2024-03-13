@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtkub2ksqw1fh"]
+
+[ext_resource type="Script" path="res://Scripts/Interactables/EndingSwitch.gd" id="1_lxwhc"]
+[ext_resource type="Texture2D" uid="uid://b6jdrlamke3xh" path="res://Sprites/Switch/RedSwitchDown.png" id="2_re534"]
+[ext_resource type="Texture2D" uid="uid://bnmwgakpx6qaj" path="res://Sprites/Switch/RedSwitchUp.png" id="3_8jaja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo0p8"]
+size = Vector2(12, 12)
+
+[node name="switch" type="Area2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_lxwhc")
+notPressed = ExtResource("2_re534")
+pressed = ExtResource("3_8jaja")
+sprite = NodePath("Switch")
+
+[node name="Switch" type="Sprite2D" parent="."]
+texture = ExtResource("3_8jaja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mo0p8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
